@@ -154,7 +154,7 @@ To check for js errors run:
 
 - GitHub: [@githubhandle](https://github.com/adeola003)
 - Twitter: [@twitterhandle](https://twitter.com/khadaf6)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou-a18396161)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
