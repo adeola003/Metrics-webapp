@@ -1,32 +1,17 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  categories: [],
+  countriesList: [],
   loading: false,
   error: null,
 };
 
-const mainSlice = createSlice({
-  name: 'category',
+const countrySlice = createSlice({
+  name: 'countries',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchCategories.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchCategories.fulfilled, (state, action) => {
-        state.loading = false;
-        state.categories = action.payload;
-        console.log(action.payload);
-      })
-      .addCase(fetchCategories.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
-      });
-  },
+  extraReducers: {},
 });
 
-export default mainSlice.reducer;
+export default countrySlice.reducer;

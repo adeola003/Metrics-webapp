@@ -6,3 +6,5 @@ const store = configureStore({
     category: categoryReducer,
   },
 });
+
+export default store;
