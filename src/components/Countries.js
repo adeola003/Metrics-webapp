@@ -1,34 +1,48 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCountries } from '../redux/countries/countriesActions';
-import { reset } from '../redux/countries/countriesSlice';
+import { Link } from 'react-router-dom';
+import { getCountries } from '../redux/countries/countriesSlice';
 
 const Countries = () => {
-  const { countriesData, loading, success } = useSelector((store) => store.countries)
+  const { countriesData, loading, success } = useSelector((store) => store.countries);
+  const dispatch = useDispatch();
+  const [countryData, setCountryData] = useState([]);
+
+  useEffect(() => {
+    dispatch(getCountries());
+    if (success) {
+      setCountryData(countriesData);
+    }
+  }, [dispatch, success]);
+
   return (
-  <>
-    <div className="country-element">
-      <img src="" alt="" />
-      <div className="content">
-        <h3>Hello</h3>
-        <p>
-          {' '}
-          Population:
-          <span />
-        </p>
-        <p>
-          Region:
-          <span />
-        </p>
-        <p>
-          Capital:
-          <span />
-        </p>
-      </div>
-    </div>
-  </>
-)};
+    <>
+      {loading ? (
+        <h1>Loading</h1>
+      ) : (
+        countryData.map((country) => (
+          <Link className="country-element" key={country.cioc} to={`/${country.cioc}`}>
+            <img src={country.flags.png} alt={country.flags.alt} />
+            <div className="content">
+              <h3>{country.name.common}</h3>
+              <p>
+                Population:
+                <span>{country.population}</span>
+              </p>
+              <p>
+                Region:
+                <span>{country.region}</span>
+              </p>
+              <p>
+                Capital:
+                <span>{country.capital}</span>
+              </p>
+            </div>
+          </Link>
+        ))
+      )}
+    </>
+  );
+};
 
 export default Countries;

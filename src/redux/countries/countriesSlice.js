@@ -1,10 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { getCountries } from './countriesActions';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+export const url = 'https://restcountries.com/v3.1/all';
+
+export const getCountries = createAsyncThunk('countries/getList',
+  async () => {
+    const response = await axios.get(url);
+    return response.data;
+  });
+
+  export const searchByCode = createAsyncThunk('countries/searchByCode',
+  async (code) => {
+    const response = await axios.get(`https://restcountries.com/v3.1/alpha/${code}`);
+    return response.data;
+  });
 
 const initialState = {
   countriesData: [],
   loading: false,
-  countryData: [],
+  countryResult: [],
   success: false,
 };
 
@@ -30,9 +44,24 @@ const countrySlice = createSlice({
       .addCase(getCountries.rejected, (state) => {
         state.loading = false;
         state.success = false;
-      });
+      })
+      .addCase(searchByCode.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(searchByCode.fulfilled, (state, action) => {
+        state.loading = false;
+        state.countryResult = action.payload;
+        state.success = true;
+      })
+      .addCase(searchByCode.rejected, (state) => {
+        state.loading = false;
+        state.success = false;
+      })
+      
+      
   },
 });
 
-export default countrySlice.reducer;
+export const countriesReducer = countrySlice.reducer;
+export default countrySlice; 
 export const { reset } = countrySlice.actions;
