@@ -2,15 +2,25 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  countriesList: [],
+  countriesData: [],
   loading: false,
   error: null,
+  countryData,
+  success: false,
+  message: ""
 };
 
 const countrySlice = createSlice({
   name: 'countries',
   initialState,
-  reducers: {},
+  reducers: {
+    reset: (state) => {
+      state.loading = false;
+      state.success = false;
+      state.error = false;
+      state.message = ""
+    }
+  },
   extraReducers: {},
 });
 
