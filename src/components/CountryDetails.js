@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Countries = () => (
+const CountryDetails = () => (
   <section>
     <div>Hello home</div>
   </section>
 );
 
-export default Countries;
+export default CountryDetails;

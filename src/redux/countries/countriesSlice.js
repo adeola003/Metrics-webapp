@@ -4,10 +4,8 @@ import { getCountries } from './countriesActions';
 const initialState = {
   countriesData: [],
   loading: false,
-  error: null,
-  countryData,
+  countryData: [],
   success: false,
-  message: ""
 };
 
 const countrySlice = createSlice({
@@ -17,26 +15,24 @@ const countrySlice = createSlice({
     reset: (state) => {
       state.loading = false;
       state.success = false;
-      state.error = false;
-      state.message = ""
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
-    .addCase(getCountries.pending, (state) => {
-      state.status = 'loading';
-    })
-    .addCase(getCountries.fulfilled, (state, action) => {
-      state.status = 'succeeded';
-      state.booksList = action.payload;
-    })
-    .addCase(getCountries.rejected, (state, action) => {
-      state.status = 'failed';
-      state.error = action.error.message;
-    })
-  
-
+      .addCase(getCountries.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getCountries.fulfilled, (state, action) => {
+        state.loading = false;
+        state.countriesData = action.payload;
+        state.success = true;
+      })
+      .addCase(getCountries.rejected, (state) => {
+        state.loading = false;
+        state.success = false;
+      });
   },
 });
 
 export default countrySlice.reducer;
+export const { reset } = countrySlice.actions;
