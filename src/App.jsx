@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Error from './components/Error';
 import Header from './components/Header';
+import CountryDetails from './components/CountryDetails';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/:code" element={<CountryDetails />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

@@ -9,7 +9,7 @@ export const getCountries = createAsyncThunk('countries/getList',
     return response.data;
   });
 
-  export const searchByCode = createAsyncThunk('countries/searchByCode',
+export const searchByCode = createAsyncThunk('countries/searchByCode',
   async (code) => {
     const response = await axios.get(`https://restcountries.com/v3.1/alpha/${code}`);
     return response.data;
@@ -52,16 +52,15 @@ const countrySlice = createSlice({
         state.loading = false;
         state.countryResult = action.payload;
         state.success = true;
+        console.log(action.payload);
       })
       .addCase(searchByCode.rejected, (state) => {
         state.loading = false;
         state.success = false;
-      })
-      
-      
+      });
   },
 });
 
 export const countriesReducer = countrySlice.reducer;
-export default countrySlice; 
+export default countrySlice;
 export const { reset } = countrySlice.actions;
