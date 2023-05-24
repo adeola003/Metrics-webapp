@@ -21,16 +21,19 @@ const Countries = () => {
       ) : (
         countriesData.map((country) => (
           <Link className="country-element" key={country.cioc} to={`/${country.cioc}`}>
-            <div className="content" style={{ backgroundImage: `url(${country.flags.png})` }}>
-              <h3>{country.name.common}</h3>
-              <p>
-                Region:
-                <span>{country.region}</span>
-              </p>
-              <p>
-                Capital:
-                <span>{country.capital}</span>
-              </p>
+            <div className="content">
+              <img className="card-bg" src={country.flags.png} alt={`Flag of ${country.name.common}`} />
+              <div className="overlay">
+                <h3>{country.name.common}</h3>
+                <p>
+                  Region:
+                  <span>{country.region}</span>
+                </p>
+                <p>
+                  Capital:
+                  <span>{country.capital}</span>
+                </p>
+              </div>
             </div>
           </Link>
         ))
