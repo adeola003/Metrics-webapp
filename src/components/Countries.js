@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getCountries } from '../redux/countries/countriesSlice';
+import { getCountries, searchByRegion } from '../redux/countries/countriesSlice';
 
 const Countries = () => {
-  const { countriesData, loading, success } = useSelector((store) => store.countries);
+  const { countriesData, loading, region } = useSelector((store) => store.countries);
   const dispatch = useDispatch();
-  const [countryData, setCountryData] = useState([]);
 
   useEffect(() => {
     dispatch(getCountries());
-    if (success) {
-      setCountryData(countriesData);
+    if (region) {
+      dispatch(searchByRegion(region));
     }
-  }, [dispatch, success]);
+  }, [dispatch, region]);
 
   return (
     <>
       {loading ? (
         <h1>Loading</h1>
       ) : (
-        countryData.map((country) => (
+        countriesData.map((country) => (
           <Link className="country-element" key={country.cioc} to={`/${country.cioc}`}>
             <img src={country.flags.png} alt={country.flags.alt} />
             <div className="content">
