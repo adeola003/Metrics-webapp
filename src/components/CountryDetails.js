@@ -41,8 +41,17 @@ const CountryDetails = () => {
         </p>
         <p>
           <stron>Capital Info:</stron>
-          <span> Latitude_ {countryResult[0].capitalInfo.latlng[0]}</span>;
-          <span> Longitude_ {countryResult[0].capitalInfo.latlng[1]}</span>
+          <span>
+            {' '}
+            Latitude_
+            {countryResult[0].capitalInfo.latlng[0]}
+          </span>
+          ;
+          <span>
+            {' '}
+            Longitude_
+            {countryResult[0].capitalInfo.latlng[1]}
+          </span>
         </p>
         <p>
           Continent:
@@ -53,7 +62,7 @@ const CountryDetails = () => {
           {Object.values(countryResult[0].currencies).map((currency) => currency.name).join(', ')}
         </p>
         <p>
-          Language:
+          Languages:
           {Object.values(countryResult[0].languages).join(', ')}
         </p>
         <p>
@@ -68,6 +77,17 @@ const CountryDetails = () => {
           Timezones:
           {countryResult[0].timezones.join(', ')}
         </p>
+        <div className="borders">
+          <p>Country borders</p>
+          {countryResult[0].borders ? (countryResult[0].borders.map((border) => (
+            <Link className="broder-name" to={`/${border}`} key={border}>
+              <p>{border}</p>
+            </Link>
+          ))
+          )
+            : (<span>No borders</span>)}
+
+        </div>
       </div>
     </section>
   );
