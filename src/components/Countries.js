@@ -26,11 +26,11 @@ const Countries = () => {
               <div className="overlay">
                 <h3>{country.name.common}</h3>
                 <p>
-                  Region:
+                  Region:&nbsp;
                   <span>{country.region}</span>
                 </p>
                 <p>
-                  Capital:
+                  Capital:&nbsp;
                   <span>{country.capital}</span>
                 </p>
               </div>

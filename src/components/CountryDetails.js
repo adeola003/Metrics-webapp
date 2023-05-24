@@ -19,57 +19,57 @@ const CountryDetails = () => {
     return (<h2>Content is not fetched thus not available</h2>);
   }
   return (
-    <section>
+    <section className='country-details'>
       <div>
         <h1>{countryResult[0].name.official}</h1>
         <img src={countryResult[0].flags.png} alt={`Flag of ${countryResult[0].name.common}`} />
         <p>
-          Capital:
+          Capital:&nbsp;
           {countryResult[0].capital}
         </p>
         <p>
           <stron>Capital Info:</stron>
           <span>
             {' '}
-            Latitude_
+            Latitude_&nbsp;
             {countryResult[0].capitalInfo.latlng[0]}
           </span>
           ;
           <span>
             {' '}
-            Longitude_
+            Longitude_&nbsp;
             {countryResult[0].capitalInfo.latlng[1]}
           </span>
         </p>
         <p>
-          Continent:
+          Continent:&nbsp;
           {countryResult[0].continents[0]}
         </p>
         <p>
-          Currencies:
+          Currencies:&nbsp;
           {Object.values(countryResult[0].currencies).map((currency) => currency.name).join(', ')}
         </p>
         <p>
-          Languages:
+          Languages:&nbsp;
           {Object.values(countryResult[0].languages).join(', ')}
         </p>
         <p>
-          Region:
+          Region:&nbsp;
           {countryResult[0].region}
         </p>
         <p>
-          Population:
+          Population:&nbsp;
           {countryResult[0].population}
         </p>
         <p>
-          Timezones:
+          Timezones:&nbsp;
           {countryResult[0].timezones.join(', ')}
         </p>
         <div className="borders">
-          <p>Country borders</p>
+          <p>Country borders:&nbsp;</p>
           {countryResult[0].borders ? (countryResult[0].borders.map((border) => (
-            <Link className="broder-name" to={`/${border}`} key={border}>
-              <p>{border}</p>
+            <Link className="border-name" to={`/${border}`} key={border}>
+              <p>&nbsp;{border}&nbsp;</p>
             </Link>
           ))
           )
