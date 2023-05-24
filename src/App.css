@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+/* Mobile Styles */
+@media (max-width: 767px) {
+
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Medium Screen Styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+ 
+
+ 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Large Screen Styles */
+@media (min-width: 1024px) {
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: #1670a4;
+  color: #ffff;
+}
+
+.navbar {
   display: flex;
-  flex-direction: column;
+  background-color: #1693a4;
+  column-gap: 30vw;
+  padding-left: 4vw;
+  height: 9vh;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.back-btn {
+  color: rgb(25, 24, 27);
+  height: 6vh;
+  width: 40px;
+  border-radius: 4px;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.back-btn:hover {
+  background-color: rgb(245, 245, 245);
+  color: blueviolet;
+  border: 2px solid whitesmoke;
+
+}
+
+.back-btn svg  {
+  margin-left: 8px;
+  margin-top: 7px;
+  font-size: 28px;
+}
+
+.header-text {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.input-container {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.world-map {
+  width: 98vw;
+  height: 25vh;
+}
+
+.ctry-cont-title {
+  font-weight: 800;
+  font-size: 40px;
 }

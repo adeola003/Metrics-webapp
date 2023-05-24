@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { searchByCode } from '../redux/countries/countriesSlice';
 
 const CountryDetails = () => {
@@ -18,20 +16,10 @@ const CountryDetails = () => {
   }, [dispatch, code]);
 
   if (loading || countryResult.length === 0) {
-    return (
-      <>
-        <Link to="/" className="back-btn">
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </Link>
-        <h2>Content is not fetched thus not available</h2>
-      </>
-    );
+    return (<h2>Content is not fetched thus not available</h2>);
   }
   return (
     <section>
-      <Link to="/" className="back-btn">
-        <FontAwesomeIcon icon={faArrowLeft} />
-      </Link>
       <div>
         <h1>{countryResult[0].name.official}</h1>
         <img src={countryResult[0].flags.png} alt={`Flag of ${countryResult[0].name.common}`} />
