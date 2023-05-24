@@ -13,7 +13,9 @@ const Home = () => (
     </section>
     <section className="country-container">
       <h3 className="ctry-cont-title">Countries list</h3>
-      <Countries />
+      <div className="cards-wrapper">
+        <Countries />
+      </div>
     </section>
   </>
 );

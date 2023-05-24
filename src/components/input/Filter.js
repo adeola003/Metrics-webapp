@@ -35,7 +35,7 @@ const Filter = () => {
         />
 
         <FontAwesomeIcon icon={faAngleDown} />
-        Hello
+        Click
       </button>
       {displayDropDown ? (
         <div className="dropdown">
