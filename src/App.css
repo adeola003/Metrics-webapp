@@ -64,7 +64,9 @@ body {
 
 .world-map {
   width: 98vw;
-  height: 25vh;
+  height: 35vh;
+  margin-left: 5px;
+  margin-top: 10px;
 }
 
 .ctry-cont-title {

@@ -7,7 +7,9 @@ const Home = () => (
   <>
     <section className="input-container">
       <Filter />
-      <a href="../assets/world-map.jpg"><img className="world-map" src={world} alt="World Map" /></a>
+      <a href="https://gisgeography.com/wp-content/uploads/2022/04/High-Resolution-World-Map-2048x1024.jpg" target="_blank" rel="noreferrer">
+        <img className="world-map" src={world} alt="World Map" />
+      </a>
     </section>
     <section className="country-container">
       <h3 className="ctry-cont-title">Countries list</h3>
