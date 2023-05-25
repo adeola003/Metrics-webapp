@@ -1,6 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+export const sum = (a, b) => {
+  return a + b
+}
+
 export const url = 'https://restcountries.com/v3.1/all';
 
 // function to get all countries
